@@ -5,6 +5,8 @@
  */
 package com.rahkar.database;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
@@ -20,7 +22,8 @@ public class ConfigHandler {
     private final int hour, minute;
 
     public ConfigHandler() throws IOException, JAXBException{
-        InputStream input = this.getClass().getResource("/com/rahkar/database/config.xml").openStream();
+        //InputStream input = this.getClass().getResource("/com/rahkar/database/config.xml").openStream();
+        InputStream input = new FileInputStream(new File("config.xml"));
         JAXBContext context = JAXBContext.newInstance(Root.class);
         Unmarshaller unmarshaller = context.createUnmarshaller();
         Root root = (Root) unmarshaller.unmarshal(input);
