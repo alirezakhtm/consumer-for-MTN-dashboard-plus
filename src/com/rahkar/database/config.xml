@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<root>
-    <setting time="01:00:00" directory="/root/Programs/apache-tomcat-8.0.48/bin" format="csv" />
-    <database username="root" password="" dbname="mobtakerandb"/>
-</root>

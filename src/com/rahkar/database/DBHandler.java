@@ -20,7 +20,7 @@ import javax.xml.bind.JAXBException;
  * @author alirzea
  */
 public class DBHandler {
-    private String username, password, url, dbname, targetDirectory;
+    private String username, password, url, dbname, targetDirectory, operationSys;
     private int hour, minute;
     private Connection conn;
     private Statement stm;
@@ -36,6 +36,7 @@ public class DBHandler {
             hour = config.getHour();
             minute = config.getMinute();
             targetDirectory = config.getTargetDirectory();
+            operationSys = config.getOperationSys();
         }catch(IOException | JAXBException e){
             System.err.println("[*] ERROR - DBHandler/Constructor : " + e);
         }
@@ -69,6 +70,14 @@ public class DBHandler {
         return targetDirectory;
     }
 
+    public String getOperationSys() {
+        return operationSys;
+    }
+
+    public void setOperationSys(String operationSys) {
+        this.operationSys = operationSys;
+    }
+    
     public void open(){
         try{
             Class.forName("com.mysql.jdbc.Driver");

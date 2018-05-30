@@ -18,7 +18,7 @@ import javax.xml.bind.Unmarshaller;
  * @author alirzea
  */
 public class ConfigHandler {
-    private final String targetDirectory, fileFormat, dbUsername, dbPassword, dbName;
+    private final String targetDirectory, fileFormat, dbUsername, dbPassword, dbName, operationSys;
     private final int hour, minute;
 
     public ConfigHandler() throws IOException, JAXBException{
@@ -35,6 +35,7 @@ public class ConfigHandler {
         String[] time = root.getSetting().getTime().split(":");
         hour = Integer.parseInt(time[0]);
         minute = Integer.parseInt(time[1]);
+        operationSys = root.getSetting().getOperationSys();
     }
 
     public String getTargetDirectory() {
@@ -65,10 +66,17 @@ public class ConfigHandler {
         return minute;
     }
 
+    public String getOperationSys() {
+        return operationSys;
+    }
+    
     @Override
     public String toString() {
-        return "targetDirectory: " + targetDirectory + "\nfileFormat: " + fileFormat + "\ndbUsername: " + dbUsername + "\n" +
-                "dbPassword: " + dbPassword + "\ndbName: " + dbName + "\nhour: " + hour + "\nminute: " + minute;
+        return "targetDirectory: " + targetDirectory + "\nfileFormat: " +
+                fileFormat + "\ndbUsername: " + dbUsername + "\n" +
+                "dbPassword: " + dbPassword + "\ndbName: " + dbName +
+                "\nhour: " + hour + "\nminute: " + minute +
+                "\nOperation System: " + operationSys;
     }
     
     

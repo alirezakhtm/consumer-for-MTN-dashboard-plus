@@ -62,9 +62,9 @@ public class AppLogic {
                         List<CSVFileUploaded> lstFiles = db.getPendingFile();
                         db.close();
                         for(CSVFileUploaded file : lstFiles){
-                            System.out.println("[*] ["+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime())+"] INFO: File fetched -> " + directory + "/" +file.getContentAddress());
+                            System.out.println("[*] ["+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime())+"] INFO: File fetched -> " + directory + ((db.getOperationSys().equals("linux")) ? "/" : "\\") +file.getContentAddress());
                             if(file.getContentAddress().endsWith(".csv")){
-                                String fileAddress = directory + "/" + file.getContentAddress();
+                                String fileAddress = directory + ((db.getOperationSys().equals("linux")) ? "/" : "\\") + file.getContentAddress();
                                 System.out.println("[*] ["+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime())+"] INFO: Set status file as \"Processing\".");
                                 db.open();
                                 db.setFileAsProcessing(file.getIndx());

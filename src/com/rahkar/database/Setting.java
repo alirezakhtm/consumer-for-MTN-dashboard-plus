@@ -15,6 +15,7 @@ public class Setting {
     private String time;
     private String directory;
     private String format;
+    private String operationSys;
 
     public String getTime() {
         return time;
@@ -41,6 +42,15 @@ public class Setting {
     @XmlAttribute(name = "format")
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public String getOperationSys() {
+        return operationSys;
+    }
+
+    @XmlAttribute(name = "os")
+    public void setOperationSys(String operationSys) {
+        this.operationSys = operationSys;
     }
     
 }

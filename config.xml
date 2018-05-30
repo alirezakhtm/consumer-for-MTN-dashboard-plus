@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <root>
-    <setting time="01:00:00" directory="/root/Programs/apache-tomcat-8.0.48/bin" format="csv" />
-    <database username="root" password="" dbname="mobtakerandb"/>
+    <setting time="01:00:00" directory="c:\tomcat\bin" format="csv" os="windows"/>
+    <database username="root" password="Mortez@M0btakeran" dbname="mobtakerandb"/>
 </root>
